@@ -340,9 +340,9 @@ export default async function LandingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <FadeIn key={feature.key} delay={index * 100}>
+              <FadeIn key={feature.key} delay={index * 100} className="h-full">
                 <div
-                  className={`relative p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border transition-all hover:shadow-lg hover:scale-[1.02] ${
+                  className={`h-full relative p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border transition-all hover:shadow-lg hover:scale-[1.02] ${
                     feature.isNew
                       ? "border-emerald-200 dark:border-emerald-800"
                       : feature.popular
