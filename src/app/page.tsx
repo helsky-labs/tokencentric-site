@@ -470,17 +470,50 @@ export default async function LandingPage() {
             <p className="text-slate-600 dark:text-slate-400 mb-6">
               {t("support.description")}
             </p>
-            <a
-              href={t("support.coffeeUrl")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-semibold transition-all hover:scale-105"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/>
-              </svg>
-              {t("support.coffee")}
-            </a>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* PIX */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm w-full sm:w-auto sm:min-w-[280px]">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <svg
+                    viewBox="0 0 512 512"
+                    className="w-6 h-6"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="512" height="512" rx="64" fill="#00D4AA" />
+                    <path
+                      d="M193.8 295.4v73.5h-40.6V143.1h90.4c27.3 0 48.6 7.3 63.8 21.8 15.3 14.5 22.9 33.6 22.9 57.2 0 24-7.5 42.9-22.4 56.8-14.9 13.8-36.1 20.8-63.7 20.8h-50.4v-.3zm0-35.5h49.8c14.3 0 25.3-3.6 32.9-10.9 7.6-7.3 11.4-17.6 11.4-30.8 0-12.9-3.8-23.3-11.3-31.2-7.5-7.9-18.1-11.9-31.8-12H193.8v84.9zm148.6 109h-40.6V143.1h40.6v225.8zm61.3 0l-67.1-105.8v-.6l69.5-119.4h47.1l-72.7 119.4 75 106.4h-47.8z"
+                      fill="white"
+                    />
+                  </svg>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    PIX
+                  </span>
+                </div>
+                <div className="bg-slate-100 dark:bg-slate-700 rounded-lg p-3">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+                    {t("support.pixKey")}
+                  </p>
+                  <p className="font-mono text-slate-900 dark:text-white select-all text-xs break-all">
+                    772337c9-12fc-47fa-8849-32fb5f696129
+                  </p>
+                </div>
+              </div>
+
+              {/* Buy Me a Coffee */}
+              <a
+                href={t("support.coffeeUrl")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-semibold transition-all hover:scale-105"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/>
+                </svg>
+                {t("support.coffee")}
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>

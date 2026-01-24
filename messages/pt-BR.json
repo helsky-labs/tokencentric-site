@@ -120,9 +120,10 @@
   },
   "support": {
     "title": "Achou útil?",
-    "description": "TokenCentric é grátis e open source. Se ele melhorou sua programação assistida por IA, considere me pagar um café.",
+    "description": "TokenCentric é grátis e open source. Se ele melhorou sua programação assistida por IA, considere apoiar o projeto.",
     "coffee": "Me Pague um Café",
-    "coffeeUrl": "https://buymeacoffee.com/helrabelo"
+    "coffeeUrl": "https://buymeacoffee.com/helrabelo",
+    "pixKey": "Chave PIX (Aleatória)"
   },
   "footer": {
     "builtBy": "Feito por",

@@ -120,9 +120,10 @@
   },
   "support": {
     "title": "Find this helpful?",
-    "description": "TokenCentric is free and open source. If it makes your AI-assisted coding better, consider buying me a coffee.",
+    "description": "TokenCentric is free and open source. If it makes your AI-assisted coding better, consider supporting the project.",
     "coffee": "Buy Me a Coffee",
-    "coffeeUrl": "https://buymeacoffee.com/helrabelo"
+    "coffeeUrl": "https://buymeacoffee.com/helrabelo",
+    "pixKey": "PIX Key (Random)"
   },
   "footer": {
     "builtBy": "Built by",
