@@ -123,7 +123,9 @@
     "description": "TokenCentric is free and open source. If it makes your AI-assisted coding better, consider supporting the project.",
     "coffee": "Buy Me a Coffee",
     "coffeeUrl": "https://buymeacoffee.com/helrabelo",
-    "pixKey": "PIX Key (Random)"
+    "pixKey": "PIX Key (Random)",
+    "copyPix": "Copy PIX Key",
+    "copied": "Copied!"
   },
   "footer": {
     "builtBy": "Built by",

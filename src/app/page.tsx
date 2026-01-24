@@ -5,6 +5,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import { GitHubButton } from "@/components/ui/GitHubButton";
+import { CopyPixButton } from "@/components/ui/CopyPixButton";
 import { Logo } from "@/components/ui/Logo";
 
 const GITHUB_URL = "https://github.com/helrabelo/tokencentric";
@@ -471,9 +472,9 @@ export default async function LandingPage() {
               {t("support.description")}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col items-center gap-4 max-w-sm mx-auto">
               {/* PIX */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm w-full sm:w-auto sm:min-w-[280px]">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm w-full">
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <svg
                     viewBox="0 0 512 512"
@@ -491,7 +492,7 @@ export default async function LandingPage() {
                     PIX
                   </span>
                 </div>
-                <div className="bg-slate-100 dark:bg-slate-700 rounded-lg p-3">
+                <div className="bg-slate-100 dark:bg-slate-700 rounded-lg p-3 mb-3">
                   <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                     {t("support.pixKey")}
                   </p>
@@ -499,6 +500,7 @@ export default async function LandingPage() {
                     772337c9-12fc-47fa-8849-32fb5f696129
                   </p>
                 </div>
+                <CopyPixButton />
               </div>
 
               {/* Buy Me a Coffee */}
