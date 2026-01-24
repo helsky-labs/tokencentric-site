@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import { GitHubButton } from "@/components/ui/GitHubButton";
+import { Logo } from "@/components/ui/Logo";
 
 const GITHUB_URL = "https://github.com/helrabelo/tokencentric";
 
@@ -156,13 +157,7 @@ export default async function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
-              <Image
-                src="/icon.png"
-                alt="TokenCentric"
-                width={32}
-                height={32}
-                className="rounded-lg"
-              />
+              <Logo width={32} height={32} />
               <span className="font-semibold text-lg">TokenCentric</span>
             </div>
             <div className="flex items-center gap-4">
@@ -492,13 +487,7 @@ export default async function LandingPage() {
       <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-slate-200 dark:border-slate-800">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Image
-              src="/icon.png"
-              alt="TokenCentric"
-              width={24}
-              height={24}
-              className="rounded-md"
-            />
+            <Logo width={24} height={24} />
             <span className="text-sm text-slate-600 dark:text-slate-400">
               {t("footer.builtBy")}{" "}
               <a
