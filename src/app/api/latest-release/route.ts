@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 
 const GITHUB_API =
-  "https://api.github.com/repos/helsky-labs/dropvox/releases/latest";
+  "https://api.github.com/repos/helsky-labs/tokencentric/releases/latest";
 
 export async function GET() {
   try {
     const res = await fetch(GITHUB_API, {
       headers: {
         Accept: "application/vnd.github.v3+json",
-        "User-Agent": "dropvox-site",
+        "User-Agent": "tokencentric-site",
       },
       next: { revalidate: 300 }, // Cache for 5 minutes
     });
@@ -36,11 +36,11 @@ export async function GET() {
     // Fallback to hardcoded latest known version
     return NextResponse.json(
       {
-        version: "0.7.2",
-        tagName: "v0.7.2",
+        version: "0.2.0",
+        tagName: "v0.2.0",
         downloadUrl:
-          "https://github.com/helsky-labs/dropvox/releases/download/v0.7.2/DropVox-0.7.2.dmg",
-        fileName: "DropVox-0.7.2.dmg",
+          "https://github.com/helsky-labs/tokencentric/releases/download/v0.2.0/Tokencentric-0.2.0.dmg",
+        fileName: "Tokencentric-0.2.0.dmg",
         error: "Failed to fetch latest release",
       },
       { status: 200 } // Still return 200 with fallback data
