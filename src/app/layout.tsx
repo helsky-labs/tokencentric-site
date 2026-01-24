@@ -110,12 +110,11 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <head>
         <JsonLd />
-        {/* TODO: Add analytics ID when tokencentric site is registered in Umami */}
-        {/* <Script
+        <Script
           defer
           src="https://analytics.helsky-labs.com/script.js"
-          data-website-id="TOKENCENTRIC_WEBSITE_ID"
-        /> */}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100`}
