@@ -130,6 +130,8 @@
     "issues": "Issues"
   },
   "languageSwitcher": {
-    "label": "Language"
+    "label": "Language",
+    "en": "English",
+    "pt-BR": "Português"
   }
 }

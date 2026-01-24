@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "title": "TokenCentric - O Painel para Seus Assistentes de Código com IA",
+    "description": "App desktop para gerenciar arquivos de contexto de IA. Escaneie projetos, edite CLAUDE.md, .cursorrules, copilot-instructions e mais. Contagem de tokens em tempo real com tokenizadores oficiais."
+  },
+  "nav": {
+    "github": "GitHub"
+  },
+  "hero": {
+    "badge": "Grátis & Open Source - v0.1.0",
+    "title": "O Painel para Seus",
+    "titleHighlight": "Assistentes de Código com IA",
+    "titleEnd": "",
+    "description": "Veja todos os seus arquivos CLAUDE.md, .cursorrules e copilot-instructions em um só lugar. Contagem de tokens em tempo real, templates integrados e um editor bonito. Grátis para sempre.",
+    "downloadButton": "Baixar Grátis",
+    "featuresButton": "Ver Recursos",
+    "requirements": "macOS 12+ ou Windows 10+ • 150MB • Licença MIT"
+  },
+  "preview": {
+    "menuBar": "TokenCentric",
+    "selectFile": "Selecione um arquivo de contexto para editar",
+    "globalConfig": "Config Global (~/.claude)",
+    "projectFiles": "Arquivos do Projeto",
+    "recent": "Detalhamento de Tokens",
+    "recentMessage1": "CLAUDE.md - 2.847 tokens",
+    "recentTime1": "Atual",
+    "recentMessage2": "Total herdado: 4.291 tokens",
+    "recentTime2": "3 arquivos"
+  },
+  "features": {
+    "title": "Tudo que você precisa para gerenciar contexto de IA",
+    "description": "Um app para todos os seus assistentes de código com IA. Escaneie, edite, conte tokens e gerencie arquivos de contexto em todos os projetos.",
+    "popular": "Popular",
+    "new": "Novo",
+    "items": {
+      "multiTool": {
+        "title": "Suporte Multi-Ferramenta",
+        "description": "Claude Code, Cursor, GitHub Copilot, Windsurf, OpenAI - tudo em um lugar. Cada ferramenta tem seu próprio ícone e tokenizador."
+      },
+      "tokenCounting": {
+        "title": "Contagem Real de Tokens",
+        "description": "Contagens precisas usando tokenizadores oficiais: @anthropic-ai/tokenizer para Claude, tiktoken para ferramentas baseadas em OpenAI."
+      },
+      "hierarchy": {
+        "title": "Visualização de Hierarquia",
+        "description": "Veja a cadeia completa de herança: config global, arquivos do projeto, sobrescritas de subpastas. Saiba exatamente qual contexto sua IA vê."
+      },
+      "editor": {
+        "title": "Editor Monaco",
+        "description": "O editor do VS Code com destaque de sintaxe, preview de markdown e atalhos de teclado. Edite arquivos de contexto sem sair do app."
+      },
+      "templates": {
+        "title": "7 Templates Integrados",
+        "description": "Full-Stack JS, Python, Monorepo, API, Mobile e mais. Comece novos projetos com configurações comprovadas."
+      },
+      "darkMode": {
+        "title": "Modo Escuro",
+        "description": "Detecção automática de tema com opção de alteração manual. Fica ótimo de dia e de noite."
+      },
+      "autoUpdate": {
+        "title": "Atualizações Automáticas",
+        "description": "Sempre atualizado. As atualizações baixam em segundo plano e instalam quando você reiniciar."
+      },
+      "free": {
+        "title": "100% Grátis",
+        "description": "Sem tier premium, sem assinaturas, sem limites. Open source e grátis para sempre."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Como funciona",
+    "description": "Gerencie todos os seus arquivos de contexto de IA em três passos simples.",
+    "steps": {
+      "scan": {
+        "title": "Escaneie Seus Projetos",
+        "description": "Aponte o TokenCentric para seus diretórios de código. Ele encontra todos os arquivos de contexto de IA automaticamente: CLAUDE.md, .cursorrules, copilot-instructions.md e mais."
+      },
+      "edit": {
+        "title": "Edite com Confiança",
+        "description": "Veja a contagem de tokens em tempo real enquanto digita. Indicadores coloridos avisam quando arquivos ficam muito grandes. Preview de markdown lado a lado."
+      },
+      "manage": {
+        "title": "Gerencie Tudo",
+        "description": "Crie novos arquivos a partir de templates, duplique configs entre projetos, e mantenha suas instruções de IA organizadas e otimizadas."
+      }
+    }
+  },
+  "tools": {
+    "title": "Funciona com todas as principais ferramentas de IA",
+    "description": "TokenCentric detecta e gerencia arquivos de contexto para todos os assistentes de código com IA que você usa.",
+    "items": {
+      "claude": {
+        "name": "Claude Code",
+        "pattern": "CLAUDE.md"
+      },
+      "cursor": {
+        "name": "Cursor",
+        "pattern": ".cursorrules"
+      },
+      "copilot": {
+        "name": "GitHub Copilot",
+        "pattern": ".github/copilot-instructions.md"
+      },
+      "windsurf": {
+        "name": "Windsurf",
+        "pattern": ".windsurfrules"
+      },
+      "openai": {
+        "name": "ChatGPT / OpenAI",
+        "pattern": "AGENTS.md"
+      }
+    }
+  },
+  "cta": {
+    "title": "Pronto para organizar seu contexto de IA?",
+    "description": "Baixe o TokenCentric e assuma o controle das configurações dos seus assistentes de código com IA.",
+    "downloadButton": "Baixar Grátis",
+    "githubButton": "Ver no GitHub",
+    "version": "macOS 12+ ou Windows 10+ • Licença MIT • Sempre Grátis"
+  },
+  "support": {
+    "title": "Achou útil?",
+    "description": "TokenCentric é grátis e open source. Se ele melhorou sua programação assistida por IA, considere me pagar um café.",
+    "coffee": "Me Pague um Café",
+    "coffeeUrl": "https://buymeacoffee.com/helrabelo"
+  },
+  "footer": {
+    "builtBy": "Feito por",
+    "releases": "Releases",
+    "issues": "Issues"
+  },
+  "languageSwitcher": {
+    "label": "Idioma",
+    "en": "English",
+    "pt-BR": "Português"
+  }
+}

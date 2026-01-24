@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import { GitHubButton } from "@/components/ui/GitHubButton";
 import { Logo } from "@/components/ui/Logo";
@@ -161,6 +162,7 @@ export default async function LandingPage() {
               <span className="font-semibold text-lg">TokenCentric</span>
             </div>
             <div className="flex items-center gap-4">
+              <LanguageSwitcher />
               <ThemeToggle />
               <GitHubButton
                 href={GITHUB_URL}
