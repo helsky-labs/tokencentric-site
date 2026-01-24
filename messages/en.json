@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "TokenCentric - The Dashboard for Your AI Coding Assistants",
+    "description": "Desktop app for managing AI context files. Scan projects, edit CLAUDE.md, .cursorrules, copilot-instructions, and more. Real-time token counting with official tokenizers."
+  },
+  "nav": {
+    "github": "GitHub"
+  },
+  "hero": {
+    "badge": "Free & Open Source - v0.1.0",
+    "title": "The Dashboard for Your",
+    "titleHighlight": "AI Coding Assistants",
+    "titleEnd": "",
+    "description": "See all your CLAUDE.md, .cursorrules, and copilot-instructions files in one place. Real-time token counting, built-in templates, and a beautiful editor. Free forever.",
+    "downloadButton": "Download Free",
+    "featuresButton": "See Features",
+    "requirements": "macOS 12+ or Windows 10+ • 150MB • MIT License"
+  },
+  "preview": {
+    "menuBar": "TokenCentric",
+    "selectFile": "Select a context file to edit",
+    "globalConfig": "Global Config (~/.claude)",
+    "projectFiles": "Project Files",
+    "recent": "Token Breakdown",
+    "recentMessage1": "CLAUDE.md - 2,847 tokens",
+    "recentTime1": "Current",
+    "recentMessage2": "Inherited total: 4,291 tokens",
+    "recentTime2": "3 files"
+  },
+  "features": {
+    "title": "Everything you need to manage AI context",
+    "description": "One app for all your AI coding assistants. Scan, edit, count tokens, and manage context files across every project.",
+    "popular": "Popular",
+    "new": "New",
+    "items": {
+      "multiTool": {
+        "title": "Multi-Tool Support",
+        "description": "Claude Code, Cursor, GitHub Copilot, Windsurf, OpenAI - all in one place. Each tool gets its own icon and tokenizer."
+      },
+      "tokenCounting": {
+        "title": "Real Token Counts",
+        "description": "Accurate counts using official tokenizers: @anthropic-ai/tokenizer for Claude, tiktoken for OpenAI-based tools."
+      },
+      "hierarchy": {
+        "title": "Hierarchy View",
+        "description": "See the full inheritance chain: global config, project files, subfolder overrides. Know exactly what context your AI sees."
+      },
+      "editor": {
+        "title": "Monaco Editor",
+        "description": "VS Code's editor with syntax highlighting, markdown preview, and keyboard shortcuts. Edit context files without leaving the app."
+      },
+      "templates": {
+        "title": "7 Built-in Templates",
+        "description": "Full-Stack JS, Python, Monorepo, API, Mobile, and more. Start new projects with proven configurations."
+      },
+      "darkMode": {
+        "title": "Dark Mode",
+        "description": "Automatic theme detection with manual override. Looks great day and night."
+      },
+      "autoUpdate": {
+        "title": "Auto Updates",
+        "description": "Always stay current. Updates download in the background and install when you restart."
+      },
+      "free": {
+        "title": "100% Free",
+        "description": "No premium tier, no subscriptions, no limits. Open source and free forever."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "description": "Manage all your AI context files in three simple steps.",
+    "steps": {
+      "scan": {
+        "title": "Scan Your Projects",
+        "description": "Point TokenCentric at your code directories. It finds all AI context files automatically: CLAUDE.md, .cursorrules, copilot-instructions.md, and more."
+      },
+      "edit": {
+        "title": "Edit with Confidence",
+        "description": "See real-time token counts as you type. Color-coded indicators warn when files get too large. Preview markdown side-by-side."
+      },
+      "manage": {
+        "title": "Manage Everything",
+        "description": "Create new files from templates, duplicate configs across projects, and keep your AI instructions organized and optimized."
+      }
+    }
+  },
+  "tools": {
+    "title": "Works with all major AI tools",
+    "description": "TokenCentric detects and manages context files for every AI coding assistant you use.",
+    "items": {
+      "claude": {
+        "name": "Claude Code",
+        "pattern": "CLAUDE.md"
+      },
+      "cursor": {
+        "name": "Cursor",
+        "pattern": ".cursorrules"
+      },
+      "copilot": {
+        "name": "GitHub Copilot",
+        "pattern": ".github/copilot-instructions.md"
+      },
+      "windsurf": {
+        "name": "Windsurf",
+        "pattern": ".windsurfrules"
+      },
+      "openai": {
+        "name": "ChatGPT / OpenAI",
+        "pattern": "AGENTS.md"
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to organize your AI context?",
+    "description": "Download TokenCentric and take control of your AI coding assistant configurations.",
+    "downloadButton": "Download Free",
+    "githubButton": "View on GitHub",
+    "version": "macOS 12+ or Windows 10+ • MIT License • Always Free"
+  },
+  "support": {
+    "title": "Find this helpful?",
+    "description": "TokenCentric is free and open source. If it makes your AI-assisted coding better, consider buying me a coffee.",
+    "coffee": "Buy Me a Coffee",
+    "coffeeUrl": "https://buymeacoffee.com/helrabelo"
+  },
+  "footer": {
+    "builtBy": "Built by",
+    "releases": "Releases",
+    "issues": "Issues"
+  },
+  "languageSwitcher": {
+    "label": "Language"
+  }
+}
