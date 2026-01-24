@@ -5,7 +5,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import { GitHubButton } from "@/components/ui/GitHubButton";
-import { CopyPixButton } from "@/components/ui/CopyPixButton";
+import { PixSupport } from "@/components/ui/PixSupport";
 import { Logo } from "@/components/ui/Logo";
 
 const GITHUB_URL = "https://github.com/helrabelo/tokencentric";
@@ -461,10 +461,9 @@ export default async function LandingPage() {
       </section>
 
       {/* Support Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-100 dark:bg-slate-800/30">
+      <section id="support" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-100 dark:bg-slate-800/30">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
-            <div className="text-4xl mb-4">☕</div>
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
               {t("support.title")}
             </h3>
@@ -472,9 +471,7 @@ export default async function LandingPage() {
               {t("support.description")}
             </p>
 
-            <div className="flex flex-col items-center gap-4 max-w-xs mx-auto">
-              <CopyPixButton />
-            </div>
+            <PixSupport />
           </FadeIn>
         </div>
       </section>
