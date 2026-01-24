@@ -22,23 +22,23 @@ export function CopyPixButton() {
   return (
     <button
       onClick={handleCopy}
-      className={`w-full py-2.5 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2 ${
+      className={`w-full px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 flex items-center justify-center gap-3 ${
         copied
-          ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
-          : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+          ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
+          : 'bg-[#00D4AA] hover:bg-[#00B894] text-white'
       }`}
     >
       {copied ? (
         <>
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
           {t('copied')}
         </>
       ) : (
         <>
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+            <path d="M13.4 4.8l3.1 3.1c.7.7 1.1 1.7 1.1 2.7v.5l-3.4 3.4c-1.1 1.1-2.9 1.1-4 0l-2.6-2.6c-.2-.2-.5-.2-.7 0l-2.6 2.6c-1.1 1.1-2.9 1.1-4 0L0 11.1v-.5c0-1 .4-2 1.1-2.7L4.2 4.8c.5-.5 1.2-.8 1.9-.8h.3l3.4 3.4c1.1 1.1 2.9 1.1 4 0l3.4-3.4h.3c.7 0 1.4.3 1.9.8zm-2.8 14.4l-3.1-3.1c-.7-.7-1.1-1.7-1.1-2.7v-.5l3.4-3.4c1.1-1.1 2.9-1.1 4 0l2.6 2.6c.2.2.5.2.7 0l2.6-2.6c1.1-1.1 2.9-1.1 4 0L24 12.9v.5c0 1-.4 2-1.1 2.7l-3.1 3.1c-.5.5-1.2.8-1.9.8h-.3l-3.4-3.4c-1.1-1.1-2.9-1.1-4 0l-3.4 3.4h-.3c-.7 0-1.4-.3-1.9-.8z"/>
           </svg>
           {t('copyPix')}
         </>
