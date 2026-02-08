@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -9,6 +9,15 @@ import { PixSupport } from "@/components/ui/PixSupport";
 import { Logo } from "@/components/ui/Logo";
 
 const GITHUB_URL = "https://github.com/helsky-labs/tokencentric";
+const RELEASES_FALLBACK = "https://github.com/helsky-labs/tokencentric/releases/latest";
+
+// Detect OS from User-Agent header
+async function detectPlatform(): Promise<"mac" | "windows"> {
+  const headersList = await headers();
+  const ua = headersList.get("user-agent") || "";
+  if (/windows/i.test(ua)) return "windows";
+  return "mac";
+}
 
 // Fetch latest release info from GitHub API
 async function getLatestRelease() {
@@ -30,18 +39,21 @@ async function getLatestRelease() {
     const dmgAsset = data.assets?.find((a: { name: string }) =>
       a.name.endsWith(".dmg")
     );
+    const exeAsset = data.assets?.find(
+      (a: { name: string }) =>
+        a.name.endsWith(".exe") && a.name.toLowerCase().includes("setup")
+    );
 
     return {
       version: data.tag_name?.replace(/^v/, "") || "0.1.0",
-      downloadUrl:
-        dmgAsset?.browser_download_url ||
-        "https://github.com/helsky-labs/tokencentric/releases/latest",
+      macUrl: dmgAsset?.browser_download_url || RELEASES_FALLBACK,
+      windowsUrl: exeAsset?.browser_download_url || RELEASES_FALLBACK,
     };
   } catch {
-    // Fallback to latest known version
     return {
       version: "0.1.0",
-      downloadUrl: "https://github.com/helsky-labs/tokencentric/releases/latest",
+      macUrl: RELEASES_FALLBACK,
+      windowsUrl: RELEASES_FALLBACK,
     };
   }
 }
@@ -129,9 +141,12 @@ function ToolIcon({ tool }: { tool: string }) {
 
 export default async function LandingPage() {
   const t = await getTranslations();
-  const release = await getLatestRelease();
-  const DOWNLOAD_URL = release.downloadUrl;
+  const [release, platform] = await Promise.all([
+    getLatestRelease(),
+    detectPlatform(),
+  ]);
   const VERSION = release.version;
+  const primaryUrl = platform === "windows" ? release.windowsUrl : release.macUrl;
 
   const features = [
     { icon: "tools", key: "multiTool", popular: true, isNew: false },
@@ -155,11 +170,13 @@ export default async function LandingPage() {
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-50/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-50/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 transition-shadow duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
-              <Logo width={32} height={32} />
+              <span className="transition-transform duration-200 hover:rotate-6">
+                <Logo width={32} height={32} />
+              </span>
               <span className="font-semibold text-lg">TokenCentric</span>
             </div>
             <div className="flex items-center gap-4">
@@ -199,7 +216,7 @@ export default async function LandingPage() {
           <FadeIn delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
               {t("hero.title")}{" "}
-              <span className="text-emerald-600 dark:text-emerald-400">
+              <span className="animate-gradient bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 dark:from-emerald-400 dark:via-teal-300 dark:to-emerald-400">
                 {t("hero.titleHighlight")}
               </span>
               {t("hero.titleEnd")}
@@ -215,19 +232,20 @@ export default async function LandingPage() {
           <FadeIn delay={300}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <DownloadButton
-                href={DOWNLOAD_URL}
+                href={primaryUrl}
                 version={VERSION}
                 location="hero"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-emerald-500/25"
+                platform={platform}
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/25"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
-                {t("hero.downloadButton")}
+                {t(`hero.downloadButton.${platform}`)}
               </DownloadButton>
               <a
                 href="#features"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 font-medium transition-colors active:scale-95"
               >
                 {t("hero.featuresButton")}
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -238,15 +256,27 @@ export default async function LandingPage() {
           </FadeIn>
 
           <FadeIn delay={400}>
-            <p className="mt-6 text-sm text-slate-500 dark:text-slate-500">
-              {t("hero.requirements")}
-            </p>
+            <div className="mt-4 space-y-1">
+              <p className="text-sm text-slate-500 dark:text-slate-500">
+                {t("hero.requirements")}
+              </p>
+              <p className="text-sm">
+                <a
+                  href={RELEASES_FALLBACK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                >
+                  {t("hero.otherPlatforms")}
+                </a>
+              </p>
+            </div>
           </FadeIn>
         </div>
 
         {/* App Preview */}
         <FadeIn delay={500} className="mt-16 max-w-4xl mx-auto">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 p-4">
+          <div className="animate-float relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 p-4">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -316,7 +346,7 @@ export default async function LandingPage() {
           <div className="flex flex-wrap justify-center gap-8">
             {tools.map((tool, index) => (
               <FadeIn key={tool} delay={index * 50}>
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex flex-col items-center gap-2 transition-transform duration-200 hover:-translate-y-1 hover:shadow-md rounded-xl p-3">
                   <ToolIcon tool={tool} />
                   <span className="text-sm font-medium">{t(`tools.items.${tool}.name`)}</span>
                   <span className="text-xs text-slate-500 font-mono">{t(`tools.items.${tool}.pattern`)}</span>
@@ -343,7 +373,7 @@ export default async function LandingPage() {
             {features.map((feature, index) => (
               <FadeIn key={feature.key} delay={index * 100} className="h-full">
                 <div
-                  className={`h-full relative p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border transition-all hover:shadow-lg hover:scale-[1.02] ${
+                  className={`group h-full relative p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border transition-all hover:shadow-lg hover:scale-[1.02] cursor-default ${
                     feature.isNew
                       ? "border-emerald-200 dark:border-emerald-800"
                       : feature.popular
@@ -352,15 +382,15 @@ export default async function LandingPage() {
                   }`}
                 >
                   {feature.isNew ? (
-                    <span className="absolute -top-3 right-4 px-3 py-1 text-xs font-medium bg-emerald-600 text-white rounded-full">
+                    <span className="animate-shimmer absolute -top-3 right-4 px-3 py-1 text-xs font-medium bg-emerald-600 text-white rounded-full">
                       {t("features.new")}
                     </span>
                   ) : feature.popular ? (
-                    <span className="absolute -top-3 right-4 px-3 py-1 text-xs font-medium bg-amber-600 text-white rounded-full">
+                    <span className="animate-shimmer absolute -top-3 right-4 px-3 py-1 text-xs font-medium bg-amber-600 text-white rounded-full">
                       {t("features.popular")}
                     </span>
                   ) : null}
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-200 group-hover:scale-110 ${
                     feature.isNew
                       ? "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400"
                       : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
@@ -390,12 +420,17 @@ export default async function LandingPage() {
             </p>
           </FadeIn>
 
-          <div className="space-y-8">
+          <div className="space-y-8 relative">
             {steps.map((step, index) => (
               <FadeIn key={step.number} delay={index * 150}>
-                <div className="flex gap-6 items-start">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 text-white font-bold text-xl flex items-center justify-center">
-                    {step.number}
+                <div className="flex gap-6 items-start relative">
+                  <div className="flex flex-col items-center">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 text-white font-bold text-xl flex items-center justify-center transition-transform duration-200 hover:scale-110">
+                      {step.number}
+                    </div>
+                    {index < steps.length - 1 && (
+                      <div className="w-0.5 h-8 bg-emerald-200 dark:bg-emerald-800 mt-2" />
+                    )}
                   </div>
                   <div>
                     <h3 className="font-semibold text-xl mb-2">{t(`howItWorks.steps.${step.key}.title`)}</h3>
@@ -425,20 +460,21 @@ export default async function LandingPage() {
           <FadeIn delay={100}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <DownloadButton
-                href={DOWNLOAD_URL}
+                href={primaryUrl}
                 version={VERSION}
                 location="cta"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-lg transition-all hover:scale-105 shadow-lg shadow-emerald-500/25"
+                platform={platform}
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/25"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
-                {t("cta.downloadButton")}
+                {t(`cta.downloadButton.${platform}`)}
               </DownloadButton>
               <GitHubButton
                 href={GITHUB_URL}
                 location="cta"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 font-medium transition-colors active:scale-95"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -453,9 +489,21 @@ export default async function LandingPage() {
           </FadeIn>
 
           <FadeIn delay={200}>
-            <p className="mt-6 text-sm text-slate-500">
-              v{VERSION} • {t("cta.version")}
-            </p>
+            <div className="mt-4 space-y-1">
+              <p className="text-sm text-slate-500">
+                v{VERSION} • {t("cta.version")}
+              </p>
+              <p className="text-sm">
+                <a
+                  href={RELEASES_FALLBACK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                >
+                  {t("cta.otherPlatforms")}
+                </a>
+              </p>
+            </div>
           </FadeIn>
         </div>
       </section>
@@ -487,7 +535,7 @@ export default async function LandingPage() {
                 href="https://github.com/helrabelo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-600 dark:text-emerald-400 hover:underline"
+                className="text-emerald-600 dark:text-emerald-400 underline decoration-transparent hover:decoration-current transition-colors"
               >
                 Hel Rabelo
               </a>
@@ -497,7 +545,7 @@ export default async function LandingPage() {
             <GitHubButton
               href={GITHUB_URL}
               location="footer"
-              className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
             >
               {t("nav.github")}
             </GitHubButton>
@@ -505,7 +553,7 @@ export default async function LandingPage() {
               href={`${GITHUB_URL}/releases`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
             >
               {t("footer.releases")}
             </a>
@@ -513,13 +561,13 @@ export default async function LandingPage() {
               href={`${GITHUB_URL}/issues`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
             >
               {t("footer.issues")}
             </a>
             <a
               href="/privacy"
-              className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
             >
               {t("footer.privacy")}
             </a>

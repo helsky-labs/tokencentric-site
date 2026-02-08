@@ -12,7 +12,11 @@
     "titleHighlight": "Assistentes de Código com IA",
     "titleEnd": "",
     "description": "Veja todos os seus arquivos CLAUDE.md, .cursorrules e copilot-instructions em um só lugar. Contagem de tokens em tempo real, templates integrados e um editor bonito. Grátis para sempre.",
-    "downloadButton": "Baixar Grátis",
+    "downloadButton": {
+      "mac": "Baixar para macOS",
+      "windows": "Baixar para Windows"
+    },
+    "otherPlatforms": "Procurando outra plataforma?",
     "featuresButton": "Ver Recursos",
     "requirements": "macOS 12+ ou Windows 10+ • 150MB • Licença MIT"
   },
@@ -114,7 +118,11 @@
   "cta": {
     "title": "Pronto para organizar seu contexto de IA?",
     "description": "Baixe o TokenCentric e assuma o controle das configurações dos seus assistentes de código com IA.",
-    "downloadButton": "Baixar Grátis",
+    "downloadButton": {
+      "mac": "Baixar para macOS",
+      "windows": "Baixar para Windows"
+    },
+    "otherPlatforms": "Procurando outra plataforma?",
     "githubButton": "Ver no GitHub",
     "version": "macOS 12+ ou Windows 10+ • Licença MIT • Sempre Grátis"
   },

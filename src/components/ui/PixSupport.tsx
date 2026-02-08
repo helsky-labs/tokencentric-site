@@ -21,7 +21,7 @@ export function PixSupport() {
   }
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg max-w-sm mx-auto">
+    <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow max-w-sm mx-auto">
       {/* PIX Logo and Title */}
       <div className="flex items-center justify-center gap-2 mb-4">
         <svg viewBox="0 0 512 512" className="w-8 h-8" fill="none">
@@ -57,7 +57,7 @@ export function PixSupport() {
       {/* Copy Button */}
       <button
         onClick={handleCopy}
-        className={`w-full px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 flex items-center justify-center gap-3 ${
+        className={`w-full px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3 ${
           copied
             ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
             : 'bg-[#00D4AA] hover:bg-[#00B894] text-white'

@@ -8,6 +8,7 @@ interface DownloadButtonProps {
   children: React.ReactNode;
   className?: string;
   location: "hero" | "cta" | "how-it-works";
+  platform?: "mac" | "windows";
 }
 
 export function DownloadButton({
@@ -16,11 +17,13 @@ export function DownloadButton({
   children,
   className,
   location,
+  platform,
 }: DownloadButtonProps) {
   const handleClick = () => {
     trackEvent(ANALYTICS_EVENTS.DOWNLOAD_CLICKED, {
       version,
       location,
+      platform,
       download_url: href,
     });
   };

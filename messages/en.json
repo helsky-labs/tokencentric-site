@@ -12,7 +12,11 @@
     "titleHighlight": "AI Coding Assistants",
     "titleEnd": "",
     "description": "See all your CLAUDE.md, .cursorrules, and copilot-instructions files in one place. Real-time token counting, built-in templates, and a beautiful editor. Free forever.",
-    "downloadButton": "Download Free",
+    "downloadButton": {
+      "mac": "Download for macOS",
+      "windows": "Download for Windows"
+    },
+    "otherPlatforms": "Looking for another platform?",
     "featuresButton": "See Features",
     "requirements": "macOS 12+ or Windows 10+ • 150MB • MIT License"
   },
@@ -114,7 +118,11 @@
   "cta": {
     "title": "Ready to organize your AI context?",
     "description": "Download TokenCentric and take control of your AI coding assistant configurations.",
-    "downloadButton": "Download Free",
+    "downloadButton": {
+      "mac": "Download for macOS",
+      "windows": "Download for Windows"
+    },
+    "otherPlatforms": "Looking for another platform?",
     "githubButton": "View on GitHub",
     "version": "macOS 12+ or Windows 10+ • MIT License • Always Free"
   },
