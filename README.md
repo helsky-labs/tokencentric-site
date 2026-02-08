@@ -1,6 +1,6 @@
 # TokenCentric Landing Page
 
-Marketing site for [TokenCentric](https://github.com/helrabelo/tokencentric) - the dashboard for AI coding assistants.
+Marketing site for [TokenCentric](https://github.com/helsky-labs/tokencentric) - the dashboard for AI coding assistants.
 
 **Live**: https://tokencentric.app
 

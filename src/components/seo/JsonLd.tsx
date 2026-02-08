@@ -57,7 +57,7 @@ export function JsonLd() {
     name: "TokenCentric",
     url: baseUrl,
     logo: `${baseUrl}/icon.png`,
-    sameAs: ["https://github.com/helrabelo/tokencentric"],
+    sameAs: ["https://github.com/helsky-labs/tokencentric"],
   };
 
   return (

@@ -8,13 +8,13 @@ import { GitHubButton } from "@/components/ui/GitHubButton";
 import { PixSupport } from "@/components/ui/PixSupport";
 import { Logo } from "@/components/ui/Logo";
 
-const GITHUB_URL = "https://github.com/helrabelo/tokencentric";
+const GITHUB_URL = "https://github.com/helsky-labs/tokencentric";
 
 // Fetch latest release info from GitHub API
 async function getLatestRelease() {
   try {
     const res = await fetch(
-      "https://api.github.com/repos/helrabelo/tokencentric/releases/latest",
+      "https://api.github.com/repos/helsky-labs/tokencentric/releases/latest",
       {
         headers: {
           Accept: "application/vnd.github.v3+json",
@@ -35,13 +35,13 @@ async function getLatestRelease() {
       version: data.tag_name?.replace(/^v/, "") || "0.1.0",
       downloadUrl:
         dmgAsset?.browser_download_url ||
-        "https://github.com/helrabelo/tokencentric/releases/latest",
+        "https://github.com/helsky-labs/tokencentric/releases/latest",
     };
   } catch {
     // Fallback to latest known version
     return {
       version: "0.1.0",
-      downloadUrl: "https://github.com/helrabelo/tokencentric/releases/latest",
+      downloadUrl: "https://github.com/helsky-labs/tokencentric/releases/latest",
     };
   }
 }
@@ -516,6 +516,12 @@ export default async function LandingPage() {
               className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
             >
               {t("footer.issues")}
+            </a>
+            <a
+              href="/privacy"
+              className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+            >
+              {t("footer.privacy")}
             </a>
           </div>
         </div>
