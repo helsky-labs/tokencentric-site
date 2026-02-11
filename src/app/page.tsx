@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -276,60 +277,27 @@ export default async function LandingPage() {
 
         {/* App Preview */}
         <FadeIn delay={500} className="mt-16 max-w-4xl mx-auto">
-          <div className="animate-float relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 p-4">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              <span className="ml-2 text-sm text-slate-500">{t("preview.menuBar")}</span>
+          <div className="animate-float relative">
+            {/* Main screenshot */}
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
+              <Image
+                src="/screenshots/home.png"
+                alt={t("preview.homeAlt")}
+                width={1200}
+                height={750}
+                className="w-full h-auto"
+                priority
+              />
             </div>
-            <div className="flex gap-4 bg-white dark:bg-slate-900 rounded-lg overflow-hidden">
-              {/* Sidebar */}
-              <div className="w-64 border-r border-slate-200 dark:border-slate-700 p-4">
-                <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-3">
-                  {t("preview.globalConfig")}
-                </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 mb-4">
-                  <span className="text-sm">~/.claude/CLAUDE.md</span>
-                  <span className="ml-auto text-xs font-mono">1.2k</span>
-                </div>
-                <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-3">
-                  {t("preview.projectFiles")}
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
-                    <span className="w-5 h-5 rounded bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 text-xs flex items-center justify-center font-bold">C</span>
-                    <span className="text-sm">CLAUDE.md</span>
-                    <span className="ml-auto text-xs font-mono text-green-600">2.8k</span>
-                  </div>
-                  <div className="flex items-center gap-2 p-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20">
-                    <span className="w-5 h-5 rounded bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 text-xs flex items-center justify-center font-bold">Cu</span>
-                    <span className="text-sm">.cursorrules</span>
-                    <span className="ml-auto text-xs font-mono text-yellow-600">8.4k</span>
-                  </div>
-                </div>
-              </div>
-              {/* Editor */}
-              <div className="flex-1 p-4">
-                <div className="text-sm font-mono text-slate-600 dark:text-slate-400 space-y-1">
-                  <div><span className="text-blue-600 dark:text-blue-400"># Project Instructions</span></div>
-                  <div className="text-slate-400">...</div>
-                  <div><span className="text-purple-600 dark:text-purple-400">## Tech Stack</span></div>
-                  <div>- React + TypeScript</div>
-                  <div>- Tailwind CSS</div>
-                  <div className="text-slate-400">...</div>
-                </div>
-              </div>
-            </div>
-            {/* Status bar */}
-            <div className="mt-2 flex items-center gap-4 text-xs text-slate-500 px-2">
-              <span>Cursor</span>
-              <span className="text-slate-300 dark:text-slate-600">|</span>
-              <span>This file: 8,421</span>
-              <span className="text-slate-300 dark:text-slate-600">|</span>
-              <span>Total: 11,247</span>
-              <span className="text-slate-300 dark:text-slate-600">|</span>
-              <span className="text-green-600 dark:text-green-400">Fits all models</span>
+            {/* AI Actions overlay */}
+            <div className="absolute -bottom-6 -right-4 sm:-right-8 w-[55%] max-w-[360px] rounded-xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 transition-transform hover:scale-105">
+              <Image
+                src="/screenshots/ai-actions.png"
+                alt={t("preview.aiActionsAlt")}
+                width={600}
+                height={400}
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </FadeIn>

@@ -21,15 +21,8 @@
     "requirements": "macOS 12+ or Windows 10+ • 150MB • MIT License"
   },
   "preview": {
-    "menuBar": "TokenCentric",
-    "selectFile": "Select a context file to edit",
-    "globalConfig": "Global Config (~/.claude)",
-    "projectFiles": "Project Files",
-    "recent": "Token Breakdown",
-    "recentMessage1": "CLAUDE.md - 2,847 tokens",
-    "recentTime1": "Current",
-    "recentMessage2": "Inherited total: 4,291 tokens",
-    "recentTime2": "3 files"
+    "homeAlt": "TokenCentric main window showing CLAUDE.md editor with sidebar file tree and split Edit/Preview view",
+    "aiActionsAlt": "TokenCentric AI Actions popup showing Generate, Improve, and Summarize buttons"
   },
   "features": {
     "title": "Everything you need to manage AI context",
