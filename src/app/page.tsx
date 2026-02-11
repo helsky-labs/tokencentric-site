@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -155,6 +156,12 @@ export default async function LandingPage() {
               <span className="font-semibold text-lg">TokenCentric</span>
             </div>
             <div className="flex items-center gap-4">
+              <Link
+                href="/blog"
+                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm font-medium"
+              >
+                Blog
+              </Link>
               <LanguageSwitcher />
               <ThemeToggle />
               <GitHubButton
@@ -507,6 +514,12 @@ export default async function LandingPage() {
             >
               {t("footer.issues")}
             </a>
+            <Link
+              href="/blog"
+              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+            >
+              Blog
+            </Link>
             <a
               href="/privacy"
               className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
