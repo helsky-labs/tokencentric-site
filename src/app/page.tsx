@@ -10,7 +10,12 @@ import { PixSupport } from "@/components/ui/PixSupport";
 import { Logo } from "@/components/ui/Logo";
 
 const GITHUB_URL = "https://github.com/helsky-labs/tokencentric";
-const RELEASES_FALLBACK = "https://github.com/helsky-labs/tokencentric/releases/latest";
+const RELEASES_PAGE = "https://github.com/helsky-labs/tokencentric/releases/latest";
+
+const CURRENT_VERSION = "1.0.0";
+const DOWNLOAD_BASE = `https://github.com/helsky-labs/tokencentric/releases/download/v${CURRENT_VERSION}`;
+const MAC_DMG_URL = `${DOWNLOAD_BASE}/Tokencentric-${CURRENT_VERSION}-arm64.dmg`;
+const WIN_EXE_URL = `${DOWNLOAD_BASE}/Tokencentric-Setup-${CURRENT_VERSION}.exe`;
 
 // Detect OS from User-Agent header
 async function detectPlatform(): Promise<"mac" | "windows"> {
@@ -20,43 +25,12 @@ async function detectPlatform(): Promise<"mac" | "windows"> {
   return "mac";
 }
 
-// Fetch latest release info from GitHub API
-async function getLatestRelease() {
-  try {
-    const res = await fetch(
-      "https://api.github.com/repos/helsky-labs/tokencentric/releases/latest",
-      {
-        headers: {
-          Accept: "application/vnd.github.v3+json",
-          "User-Agent": "tokencentric-site",
-        },
-        next: { revalidate: 300 }, // Cache for 5 minutes
-      }
-    );
-
-    if (!res.ok) throw new Error("GitHub API error");
-
-    const data = await res.json();
-    const dmgAsset = data.assets?.find((a: { name: string }) =>
-      a.name.endsWith(".dmg")
-    );
-    const exeAsset = data.assets?.find(
-      (a: { name: string }) =>
-        a.name.endsWith(".exe") && a.name.toLowerCase().includes("setup")
-    );
-
-    return {
-      version: data.tag_name?.replace(/^v/, "") || "0.1.0",
-      macUrl: dmgAsset?.browser_download_url || RELEASES_FALLBACK,
-      windowsUrl: exeAsset?.browser_download_url || RELEASES_FALLBACK,
-    };
-  } catch {
-    return {
-      version: "0.1.0",
-      macUrl: RELEASES_FALLBACK,
-      windowsUrl: RELEASES_FALLBACK,
-    };
-  }
+function getLatestRelease() {
+  return {
+    version: CURRENT_VERSION,
+    macUrl: MAC_DMG_URL,
+    windowsUrl: WIN_EXE_URL,
+  };
 }
 
 function FeatureIcon({ icon }: { icon: string }) {
@@ -263,7 +237,7 @@ export default async function LandingPage() {
               </p>
               <p className="text-sm">
                 <a
-                  href={RELEASES_FALLBACK}
+                  href={RELEASES_PAGE}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
@@ -463,7 +437,7 @@ export default async function LandingPage() {
               </p>
               <p className="text-sm">
                 <a
-                  href={RELEASES_FALLBACK}
+                  href={RELEASES_PAGE}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
