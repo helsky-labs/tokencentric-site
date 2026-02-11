@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { PostHogProvider } from "@/components/providers/PostHogProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -127,11 +126,9 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100`}
       >
-        <PostHogProvider>
-          <NextIntlClientProvider messages={messages}>
-            <ThemeProvider>{children}</ThemeProvider>
-          </NextIntlClientProvider>
-        </PostHogProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
