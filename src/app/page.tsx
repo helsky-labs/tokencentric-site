@@ -9,6 +9,8 @@ import { DownloadButton } from "@/components/ui/DownloadButton";
 import { GitHubButton } from "@/components/ui/GitHubButton";
 import { PixSupport } from "@/components/ui/PixSupport";
 import { Logo } from "@/components/ui/Logo";
+import { FeatureSectionTracker } from "@/components/ui/FeatureSectionTracker";
+import { OutboundLink } from "@/components/ui/OutboundLink";
 
 const GITHUB_URL = "https://github.com/helsky-labs/tokencentric";
 const RELEASES_PAGE = "https://github.com/helsky-labs/tokencentric/releases/latest";
@@ -307,6 +309,7 @@ export default async function LandingPage() {
       </section>
 
       {/* Features Section */}
+      <FeatureSectionTracker />
       <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
@@ -498,22 +501,20 @@ export default async function LandingPage() {
             >
               {t("nav.github")}
             </GitHubButton>
-            <a
+            <OutboundLink
               href={`${GITHUB_URL}/releases`}
-              target="_blank"
-              rel="noopener noreferrer"
+              location="footer"
               className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
             >
               {t("footer.releases")}
-            </a>
-            <a
+            </OutboundLink>
+            <OutboundLink
               href={`${GITHUB_URL}/issues`}
-              target="_blank"
-              rel="noopener noreferrer"
+              location="footer"
               className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
             >
               {t("footer.issues")}
-            </a>
+            </OutboundLink>
             <Link
               href="/blog"
               className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"

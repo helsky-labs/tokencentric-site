@@ -27,4 +27,9 @@ export const ANALYTICS_EVENTS = {
 
   // Language
   LANGUAGE_CHANGED: "language_changed",
+
+  // Content
+  BLOG_POST_READ: "blog_post_read",
+  FEATURE_SECTION_VIEWED: "feature_section_viewed",
+  OUTBOUND_LINK: "outbound_link",
 } as const;

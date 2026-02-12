@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
+import { trackEvent, ANALYTICS_EVENTS } from '@/lib/analytics'
 
 const locales = ['en', 'pt-BR'] as const
 type Locale = (typeof locales)[number]
@@ -29,6 +30,7 @@ function getCurrentLocale(): Locale {
 }
 
 function setLocale(locale: Locale) {
+  trackEvent(ANALYTICS_EVENTS.LANGUAGE_CHANGED, { language: locale })
   document.cookie = `NEXT_LOCALE=${locale};path=/;max-age=${60 * 60 * 24 * 365}`
   window.location.reload()
 }
