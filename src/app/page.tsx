@@ -11,14 +11,10 @@ import { PixSupport } from "@/components/ui/PixSupport";
 import { Logo } from "@/components/ui/Logo";
 import { FeatureSectionTracker } from "@/components/ui/FeatureSectionTracker";
 import { OutboundLink } from "@/components/ui/OutboundLink";
+import { CURRENT_VERSION, MAC_DMG_URL, WIN_EXE_URL } from "@/lib/version";
 
 const GITHUB_URL = "https://github.com/helsky-labs/tokencentric";
 const RELEASES_PAGE = "https://github.com/helsky-labs/tokencentric/releases/latest";
-
-const CURRENT_VERSION = "1.0.0";
-const DOWNLOAD_BASE = `https://github.com/helsky-labs/tokencentric/releases/download/v${CURRENT_VERSION}`;
-const MAC_DMG_URL = `${DOWNLOAD_BASE}/Tokencentric-${CURRENT_VERSION}-arm64.dmg`;
-const WIN_EXE_URL = `${DOWNLOAD_BASE}/Tokencentric-Setup-${CURRENT_VERSION}.exe`;
 
 // Detect OS from User-Agent header
 async function detectPlatform(): Promise<"mac" | "windows"> {

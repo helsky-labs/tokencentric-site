@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
+import { CURRENT_VERSION, DOWNLOAD_BASE } from "@/lib/version";
 
-const CURRENT_VERSION = "1.0.0";
-const DOWNLOAD_BASE = `https://github.com/helsky-labs/tokencentric/releases/download/v${CURRENT_VERSION}`;
 const DMG_FILENAME = `Tokencentric-${CURRENT_VERSION}-arm64.dmg`;
 
 export async function GET() {
