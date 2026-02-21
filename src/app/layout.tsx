@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -8,16 +7,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
 const BASE_URL = "https://tokencentric.app";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -124,7 +113,7 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100`}
+        className="font-sans antialiased bg-[#FFFFFF] dark:bg-[#222831] text-gray-900 dark:text-[#EEEEEE]"
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>{children}</ThemeProvider>

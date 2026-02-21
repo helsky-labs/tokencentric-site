@@ -144,7 +144,7 @@ export default async function LandingPage() {
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-50/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 transition-shadow duration-300">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#F7F7F7]/80 dark:bg-[#222831]/80 border-b border-[#E0E0E0] dark:border-[#393E46] transition-shadow duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
@@ -156,7 +156,7 @@ export default async function LandingPage() {
             <div className="flex items-center gap-4">
               <Link
                 href="/blog"
-                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm font-medium"
+                className="text-[#4A5058] dark:text-[#7D8188] hover:text-[#222831] dark:hover:text-[#EEEEEE] transition-colors text-sm font-medium"
               >
                 Blog
               </Link>
@@ -165,7 +165,7 @@ export default async function LandingPage() {
               <GitHubButton
                 href={GITHUB_URL}
                 location="nav"
-                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                className="text-[#4A5058] dark:text-[#7D8188] hover:text-[#222831] dark:hover:text-[#EEEEEE] transition-colors"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -184,10 +184,10 @@ export default async function LandingPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00ADB5]/15 dark:bg-[#008B92]/30 text-[#008B92] dark:text-[#00ADB5]/40 text-sm font-medium mb-8">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ADB5] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00ADB5]/100"></span>
               </span>
               {t("hero.badge")} - v{CURRENT_VERSION}
             </div>
@@ -196,7 +196,7 @@ export default async function LandingPage() {
           <FadeIn delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
               {t("hero.title")}{" "}
-              <span className="animate-gradient bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 dark:from-emerald-400 dark:via-teal-300 dark:to-emerald-400">
+              <span className="animate-gradient bg-gradient-to-r from-[#00ADB5] via-teal-500 to-[#00ADB5] dark:from-[#00ADB5] dark:via-teal-300 dark:to-[#00ADB5]">
                 {t("hero.titleHighlight")}
               </span>
               {t("hero.titleEnd")}
@@ -204,7 +204,7 @@ export default async function LandingPage() {
           </FadeIn>
 
           <FadeIn delay={200}>
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[#4A5058] dark:text-[#7D8188] mb-10 max-w-2xl mx-auto">
               {t("hero.description")}
             </p>
           </FadeIn>
@@ -216,7 +216,7 @@ export default async function LandingPage() {
                 version={VERSION}
                 location="hero"
                 platform={platform}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/25"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00ADB5] hover:bg-[#008B92] text-white font-semibold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#00ADB5]/100/25"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -225,7 +225,7 @@ export default async function LandingPage() {
               </DownloadButton>
               <a
                 href="#features"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 font-medium transition-colors active:scale-95"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-[#B8BCC2] dark:border-[#393E46] hover:border-[#7D8188] dark:hover:border-[#4A5058] font-medium transition-colors active:scale-95"
               >
                 {t("hero.featuresButton")}
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -237,7 +237,7 @@ export default async function LandingPage() {
 
           <FadeIn delay={400}>
             <div className="mt-4 space-y-1">
-              <p className="text-sm text-slate-500 dark:text-slate-500">
+              <p className="text-sm text-[#F7F7F7]0 dark:text-[#F7F7F7]0">
                 {t("hero.requirements")}
               </p>
               <p className="text-sm">
@@ -245,7 +245,7 @@ export default async function LandingPage() {
                   href={RELEASES_PAGE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                  className="text-[#7D8188] dark:text-[#F7F7F7]0 hover:text-[#00ADB5] dark:hover:text-[#00ADB5] transition-colors"
                 >
                   {t("hero.otherPlatforms")}
                 </a>
@@ -258,7 +258,7 @@ export default async function LandingPage() {
         <FadeIn delay={500} className="mt-16 max-w-4xl mx-auto">
           <div className="animate-float relative">
             {/* Main screenshot */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#E0E0E0] dark:border-[#393E46]">
               <Image
                 src="/screenshots/home.png"
                 alt={t("preview.homeAlt")}
@@ -269,7 +269,7 @@ export default async function LandingPage() {
               />
             </div>
             {/* AI Actions overlay */}
-            <div className="absolute -bottom-6 -right-4 sm:-right-8 w-[55%] max-w-[360px] rounded-xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 transition-transform hover:scale-105">
+            <div className="absolute -bottom-6 -right-4 sm:-right-8 w-[55%] max-w-[360px] rounded-xl overflow-hidden shadow-2xl border border-[#E0E0E0] dark:border-[#393E46] transition-transform hover:scale-105">
               <Image
                 src="/screenshots/ai-actions.png"
                 alt={t("preview.aiActionsAlt")}
@@ -283,7 +283,7 @@ export default async function LandingPage() {
       </section>
 
       {/* Tools Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#393E46]/50">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <h2 className="text-2xl font-bold text-center mb-8">
@@ -296,7 +296,7 @@ export default async function LandingPage() {
                 <div className="flex flex-col items-center gap-2 transition-transform duration-200 hover:-translate-y-1 hover:shadow-md rounded-xl p-3">
                   <ToolIcon tool={tool} />
                   <span className="text-sm font-medium">{t(`tools.items.${tool}.name`)}</span>
-                  <span className="text-xs text-slate-500 font-mono">{t(`tools.items.${tool}.pattern`)}</span>
+                  <span className="text-xs text-[#F7F7F7]0 font-mono">{t(`tools.items.${tool}.pattern`)}</span>
                 </div>
               </FadeIn>
             ))}
@@ -312,7 +312,7 @@ export default async function LandingPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
               {t("features.title")}
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-[#4A5058] dark:text-[#7D8188] text-center mb-12 max-w-2xl mx-auto">
               {t("features.description")}
             </p>
           </FadeIn>
@@ -321,16 +321,16 @@ export default async function LandingPage() {
             {features.map((feature, index) => (
               <FadeIn key={feature.key} delay={index * 100} className="h-full">
                 <div
-                  className={`group h-full relative p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border transition-all hover:shadow-lg hover:scale-[1.02] cursor-default ${
+                  className={`group h-full relative p-6 rounded-2xl bg-[#F7F7F7] dark:bg-[#393E46] border transition-all hover:shadow-lg hover:scale-[1.02] cursor-default ${
                     feature.isNew
-                      ? "border-emerald-200 dark:border-emerald-800"
+                      ? "border-[#00ADB5]/25 dark:border-[#008B92]"
                       : feature.popular
                       ? "border-amber-200 dark:border-amber-800"
-                      : "border-slate-200 dark:border-slate-700"
+                      : "border-[#E0E0E0] dark:border-[#393E46]"
                   }`}
                 >
                   {feature.isNew ? (
-                    <span className="animate-shimmer absolute -top-3 right-4 px-3 py-1 text-xs font-medium bg-emerald-600 text-white rounded-full">
+                    <span className="animate-shimmer absolute -top-3 right-4 px-3 py-1 text-xs font-medium bg-[#00ADB5] text-white rounded-full">
                       {t("features.new")}
                     </span>
                   ) : feature.popular ? (
@@ -340,13 +340,13 @@ export default async function LandingPage() {
                   ) : null}
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-200 group-hover:scale-110 ${
                     feature.isNew
-                      ? "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400"
-                      : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
+                      ? "bg-[#00ADB5]/15 dark:bg-[#008B92]/50 text-[#00ADB5] dark:text-[#00ADB5]"
+                      : "bg-[#E0E0E0] dark:bg-[#393E46] text-[#4A5058] dark:text-[#7D8188]"
                   }`}>
                     <FeatureIcon icon={feature.icon} />
                   </div>
                   <h3 className="font-semibold text-lg mb-2">{t(`features.items.${feature.key}.title`)}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm">
+                  <p className="text-[#4A5058] dark:text-[#7D8188] text-sm">
                     {t(`features.items.${feature.key}.description`)}
                   </p>
                 </div>
@@ -357,13 +357,13 @@ export default async function LandingPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-800/30">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F7F7F7] dark:bg-[#393E46]/30">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
               {t("howItWorks.title")}
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-center mb-12">
+            <p className="text-[#4A5058] dark:text-[#7D8188] text-center mb-12">
               {t("howItWorks.description")}
             </p>
           </FadeIn>
@@ -373,16 +373,16 @@ export default async function LandingPage() {
               <FadeIn key={step.number} delay={index * 150}>
                 <div className="flex gap-6 items-start relative">
                   <div className="flex flex-col items-center">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 text-white font-bold text-xl flex items-center justify-center transition-transform duration-200 hover:scale-110">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#00ADB5] text-white font-bold text-xl flex items-center justify-center transition-transform duration-200 hover:scale-110">
                       {step.number}
                     </div>
                     {index < steps.length - 1 && (
-                      <div className="w-0.5 h-8 bg-emerald-200 dark:bg-emerald-800 mt-2" />
+                      <div className="w-0.5 h-8 bg-[#00ADB5]/25 dark:bg-[#008B92] mt-2" />
                     )}
                   </div>
                   <div>
                     <h3 className="font-semibold text-xl mb-2">{t(`howItWorks.steps.${step.key}.title`)}</h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-[#4A5058] dark:text-[#7D8188]">
                       {t(`howItWorks.steps.${step.key}.description`)}
                     </p>
                   </div>
@@ -400,7 +400,7 @@ export default async function LandingPage() {
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               {t("cta.title")}
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-[#4A5058] dark:text-[#7D8188] mb-8">
               {t("cta.description")}
             </p>
           </FadeIn>
@@ -412,7 +412,7 @@ export default async function LandingPage() {
                 version={VERSION}
                 location="cta"
                 platform={platform}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/25"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00ADB5] hover:bg-[#008B92] text-white font-semibold text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#00ADB5]/100/25"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -422,7 +422,7 @@ export default async function LandingPage() {
               <GitHubButton
                 href={GITHUB_URL}
                 location="cta"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 font-medium transition-colors active:scale-95"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-[#B8BCC2] dark:border-[#393E46] hover:border-[#7D8188] dark:hover:border-[#4A5058] font-medium transition-colors active:scale-95"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -438,7 +438,7 @@ export default async function LandingPage() {
 
           <FadeIn delay={200}>
             <div className="mt-4 space-y-1">
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-[#F7F7F7]0">
                 v{VERSION} • {t("cta.version")}
               </p>
               <p className="text-sm">
@@ -446,7 +446,7 @@ export default async function LandingPage() {
                   href={RELEASES_PAGE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                  className="text-[#7D8188] dark:text-[#F7F7F7]0 hover:text-[#00ADB5] dark:hover:text-[#00ADB5] transition-colors"
                 >
                   {t("cta.otherPlatforms")}
                 </a>
@@ -457,13 +457,13 @@ export default async function LandingPage() {
       </section>
 
       {/* Support Section */}
-      <section id="support" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-100 dark:bg-slate-800/30">
+      <section id="support" className="py-16 px-4 sm:px-6 lg:px-8 bg-[#EEEEEE] dark:bg-[#393E46]/30">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+            <h3 className="text-xl font-semibold text-[#222831] dark:text-white mb-2">
               {t("support.title")}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">
+            <p className="text-[#4A5058] dark:text-[#7D8188] mb-6">
               {t("support.description")}
             </p>
 
@@ -473,53 +473,53 @@ export default async function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-slate-200 dark:border-slate-800">
+      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-[#E0E0E0] dark:border-[#393E46]">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Logo width={24} height={24} />
-            <span className="text-sm text-slate-600 dark:text-slate-400">
+            <span className="text-sm text-[#4A5058] dark:text-[#7D8188]">
               {t("footer.builtBy")}{" "}
               <a
                 href="https://github.com/helrabelo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-600 dark:text-emerald-400 underline decoration-transparent hover:decoration-current transition-colors"
+                className="text-[#00ADB5] dark:text-[#00ADB5] underline decoration-transparent hover:decoration-current transition-colors"
               >
                 Hel Rabelo
               </a>
             </span>
           </div>
-          <div className="flex items-center gap-6 text-sm text-slate-500">
+          <div className="flex items-center gap-6 text-sm text-[#F7F7F7]0">
             <GitHubButton
               href={GITHUB_URL}
               location="footer"
-              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-[#393E46] dark:hover:text-[#B8BCC2] transition-colors"
             >
               {t("nav.github")}
             </GitHubButton>
             <OutboundLink
               href={`${GITHUB_URL}/releases`}
               location="footer"
-              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-[#393E46] dark:hover:text-[#B8BCC2] transition-colors"
             >
               {t("footer.releases")}
             </OutboundLink>
             <OutboundLink
               href={`${GITHUB_URL}/issues`}
               location="footer"
-              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-[#393E46] dark:hover:text-[#B8BCC2] transition-colors"
             >
               {t("footer.issues")}
             </OutboundLink>
             <Link
               href="/blog"
-              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-[#393E46] dark:hover:text-[#B8BCC2] transition-colors"
             >
               Blog
             </Link>
             <a
               href="/privacy"
-              className="underline decoration-transparent hover:decoration-current hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+              className="underline decoration-transparent hover:decoration-current hover:text-[#393E46] dark:hover:text-[#B8BCC2] transition-colors"
             >
               {t("footer.privacy")}
             </a>

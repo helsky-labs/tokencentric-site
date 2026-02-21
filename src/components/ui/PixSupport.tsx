@@ -23,7 +23,7 @@ export function PixSupport() {
   }
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow max-w-sm mx-auto">
+    <div className="bg-white dark:bg-[#393E46] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow max-w-sm mx-auto">
       {/* PIX Logo and Title */}
       <div className="flex items-center justify-center gap-2 mb-4">
         <svg viewBox="0 0 512 512" className="w-8 h-8" fill="none">
@@ -33,7 +33,7 @@ export function PixSupport() {
             fill="white"
           />
         </svg>
-        <span className="text-xl font-bold text-slate-900 dark:text-white">PIX</span>
+        <span className="text-xl font-bold text-[#222831] dark:text-white">PIX</span>
       </div>
 
       {/* QR Code */}
@@ -47,11 +47,11 @@ export function PixSupport() {
       </div>
 
       {/* PIX Key Display */}
-      <div className="bg-slate-100 dark:bg-slate-700 rounded-lg p-3 mb-4">
-        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+      <div className="bg-[#EEEEEE] dark:bg-[#393E46] rounded-lg p-3 mb-4">
+        <p className="text-xs text-[#F7F7F7]0 dark:text-[#7D8188] mb-1">
           {t('pixKey')}
         </p>
-        <p className="font-mono text-slate-900 dark:text-white text-xs break-all select-all">
+        <p className="font-mono text-[#222831] dark:text-white text-xs break-all select-all">
           {PIX_KEY}
         </p>
       </div>
@@ -61,7 +61,7 @@ export function PixSupport() {
         onClick={handleCopy}
         className={`w-full px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3 ${
           copied
-            ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
+            ? 'bg-[#00ADB5]/100 hover:bg-[#00ADB5] text-white'
             : 'bg-[#00D4AA] hover:bg-[#00B894] text-white'
         }`}
       >

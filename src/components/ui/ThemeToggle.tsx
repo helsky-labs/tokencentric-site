@@ -7,14 +7,14 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="flex items-center gap-1 p-1 rounded-lg bg-slate-100 dark:bg-slate-700">
+    <div className="flex items-center gap-1 p-1 rounded-lg bg-[#EEEEEE] dark:bg-[#393E46]">
       <button
         onClick={() => setTheme('light')}
         className={cn(
           'p-1.5 rounded-md transition-all duration-200',
           theme === 'light'
-            ? 'bg-white dark:bg-slate-600 shadow-sm'
-            : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+            ? 'bg-white dark:bg-[#4A5058] shadow-sm'
+            : 'text-[#F7F7F7]0 hover:text-[#393E46] dark:hover:text-[#B8BCC2]'
         )}
         title="Light mode"
       >
@@ -32,8 +32,8 @@ export function ThemeToggle() {
         className={cn(
           'p-1.5 rounded-md transition-all duration-200',
           theme === 'dark'
-            ? 'bg-white dark:bg-slate-600 shadow-sm'
-            : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+            ? 'bg-white dark:bg-[#4A5058] shadow-sm'
+            : 'text-[#F7F7F7]0 hover:text-[#393E46] dark:hover:text-[#B8BCC2]'
         )}
         title="Dark mode"
       >
@@ -51,8 +51,8 @@ export function ThemeToggle() {
         className={cn(
           'p-1.5 rounded-md transition-all duration-200',
           theme === 'system'
-            ? 'bg-white dark:bg-slate-600 shadow-sm'
-            : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+            ? 'bg-white dark:bg-[#4A5058] shadow-sm'
+            : 'text-[#F7F7F7]0 hover:text-[#393E46] dark:hover:text-[#B8BCC2]'
         )}
         title="System preference"
       >

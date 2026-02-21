@@ -48,11 +48,11 @@ export function LanguageSwitcher() {
   // Render a placeholder with the same dimensions during SSR to avoid layout shift
   if (!mounted) {
     return (
-      <div className="flex items-center gap-1 p-1 rounded-lg bg-slate-100 dark:bg-slate-700">
+      <div className="flex items-center gap-1 p-1 rounded-lg bg-[#EEEEEE] dark:bg-[#393E46]">
         {locales.map((locale) => (
           <div
             key={locale}
-            className="px-2 py-1 rounded-md text-sm font-medium text-slate-500"
+            className="px-2 py-1 rounded-md text-sm font-medium text-[#F7F7F7]0"
           >
             {localeLabels[locale]}
           </div>
@@ -62,7 +62,7 @@ export function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-1 p-1 rounded-lg bg-slate-100 dark:bg-slate-700">
+    <div className="flex items-center gap-1 p-1 rounded-lg bg-[#EEEEEE] dark:bg-[#393E46]">
       {locales.map((locale) => (
         <button
           key={locale}
@@ -70,8 +70,8 @@ export function LanguageSwitcher() {
           className={cn(
             'px-2 py-1 rounded-md text-sm font-medium transition-all duration-200',
             currentLocale === locale
-              ? 'bg-white dark:bg-slate-600 shadow-sm'
-              : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+              ? 'bg-white dark:bg-[#4A5058] shadow-sm'
+              : 'text-[#F7F7F7]0 hover:text-[#393E46] dark:hover:text-[#B8BCC2]'
           )}
           title={t('label')}
         >
